@@ -46,7 +46,7 @@ class PersonTimelineViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.estimatedRowHeight = 90
-    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.rowHeight = UITableView.automaticDimension
     title = "Loading..."
     bindUI()
   }
@@ -58,7 +58,7 @@ class PersonTimelineViewController: UIViewController {
   }
 
   private func crateTweetsDataSource() -> RxTableViewSectionedAnimatedDataSource<TweetSection> {
-    let dataSource = RxTableViewSectionedAnimatedDataSource<TweetSection>()
+    let dataSource = RxTableViewSectionedAnimatedDataSource<TweetSection>(configureCell: )
     dataSource.configureCell = { dataSource, tableView, indexPath, tweet in
       return tableView.dequeueCell(ofType: TweetCellView.self).then { cell in
         cell.update(with: tweet)

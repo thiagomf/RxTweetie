@@ -43,7 +43,7 @@ class ListTimelineViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.estimatedRowHeight = 90
-    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.rowHeight = UITableView.automaticDimension
     bindUI()
   }
 

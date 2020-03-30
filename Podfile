@@ -17,6 +17,6 @@ abstract_target 'TweetieAbstract' do
     end
 
     target 'TweetieTests' do
-        pod 'RxTest', '3.4'
+        pod 'RxTest'
     end
 end

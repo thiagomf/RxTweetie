@@ -119,8 +119,10 @@ struct TwitterAPI: TwitterAPIProtocol {
         if let response = response, response.statusCode >= 400 && response.statusCode < 600 {
           observer.onError(Errors.httpError(response.statusCode))
         }
-        if let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: []) as? T, let result = json {
-          observer.onNext(result)
+        
+        if let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: []) as? T  {
+            let result = json
+            observer.onNext(result)
         }
         observer.onCompleted()
       }
